@@ -8,18 +8,22 @@
 #define ERROR -1
 #define TRUE 1
 #define FALSE 0
+#define INFEASIBLE -1
+#define OVERFLOW -2
 
 typedef int ElemType;
 typedef int Status;
 typedef struct {
     ElemType elem[LIST_INIT_SIZE];
     int length;
-} SqList;
+} SqList; /* Sequence List */
 
 Status visit(ElemType);
 
 /* 初始化顺序线性表 */
 Status InitList(SqList *L);
+/* 销毁已经存在的线性表L */
+Status DestroyList(SqList *L);
 
 /* 初始条件：顺序线性表L已存在。操作结果：若L为空表，则返回TRUE，否则返回FALSE */
 Status ListEmpty(SqList L);
@@ -57,4 +61,27 @@ int main() {
 Status visit(ElemType c) {
     printf("<%d> ", c);
     return OK;
+}
+
+Status InitList(SqList *L) {
+    L -> length = 0;
+    return OK;
+}
+
+Status ListEmpty(SqList L) {
+    if (L.length == 0) return TRUE;
+    return FALSE;
+}
+
+Status ClearList(SqList *L) {
+    L -> length = 0;
+    return OK;
+}
+
+int ListLength(SqList L) {
+    return L.length;
+}
+
+Status GetElem(SqList L, int i, ElemType *e) {
+
 }
