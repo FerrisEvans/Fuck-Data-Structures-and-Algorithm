@@ -1,15 +1,10 @@
 //
 // Created by Macintosh on 2023/7/8.
 //
-#include "stdio.h"
+#include "../status_def.h"
 
 #define LIST_INIT_SIZE 100 /* 线性表存储空间的初始分配量 */
-#define OK 1
-#define ERROR -1
-#define TRUE 1
-#define FALSE 0
-#define INFEASIBLE -1
-#define OVERFLOW -2
+
 
 typedef int ElemType;
 typedef int Status;
@@ -22,6 +17,7 @@ Status visit(ElemType);
 
 /* 初始化顺序线性表 */
 Status InitList(SqList *L);
+
 /* 销毁已经存在的线性表L */
 Status DestroyList(SqList *L);
 
@@ -64,7 +60,12 @@ Status visit(ElemType c) {
 }
 
 Status InitList(SqList *L) {
-    L -> length = 0;
+    L->length = 0;
+    return OK;
+}
+
+Status DestroyList(SqList *L) {
+    free(L);
     return OK;
 }
 
@@ -74,7 +75,7 @@ Status ListEmpty(SqList L) {
 }
 
 Status ClearList(SqList *L) {
-    L -> length = 0;
+    L->length = 0;
     return OK;
 }
 
@@ -83,5 +84,30 @@ int ListLength(SqList L) {
 }
 
 Status GetElem(SqList L, int i, ElemType *e) {
+    /* 判断i是否非法，i从1开始 */
+    if (L.length <= 0 || i < 1 || i > L.length) {
+        return ERROR;
+    }
+    *e = L.elem[i - 1];
+    return OK;
+}
+
+int LocateElem(SqList L, ElemType e) {
+
+}
+
+Status ListInsert(SqList *L, int i, ElemType e) {
+
+}
+
+Status ListDelete(SqList *L, int i, ElemType *e) {
+
+}
+
+Status ListTraverse(SqList L) {
+
+}
+
+void unionL(SqList *La, SqList Lb) {
 
 }
