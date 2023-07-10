@@ -93,19 +93,29 @@ Status GetElem(SqList L, int i, ElemType *e) {
 }
 
 int LocateElem(SqList L, ElemType e) {
+    if (L.length <= 0) {
+        return 0;
+    }
 
+    for (int i = 0; i < L.length; ++i) {
+        if (e == L.elem[i]) {
+            return i + 1;
+        }
+    }
+
+    return 0;
 }
 
 Status ListInsert(SqList *L, int i, ElemType e) {
-
+    return OK;
 }
 
 Status ListDelete(SqList *L, int i, ElemType *e) {
-
+    return OK;
 }
 
 Status ListTraverse(SqList L) {
-
+    return OK;
 }
 
 void unionL(SqList *La, SqList Lb) {
