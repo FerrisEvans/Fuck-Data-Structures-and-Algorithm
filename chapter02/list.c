@@ -107,17 +107,50 @@ int LocateElem(SqList L, ElemType e) {
 }
 
 Status ListInsert(SqList *L, int i, ElemType e) {
+    if (L->length > LIST_INIT_SIZE) return ERROR;
+
+    if (i < 1 || i > L->length + 1) return ERROR;
+
+    if (i <= L->length) {
+        for (int j = L->length - 1; j >= i - 1; --j) {
+            L->elem[j + 1] = L->elem[j];
+        }
+    }
+    L->elem[i - 1] = e;
+    L->length++;
+
     return OK;
 }
 
 Status ListDelete(SqList *L, int i, ElemType *e) {
+    if (L->length <= 0) return ERROR;
+    if (i < 1 || i > L->length) return ERROR;
+
+    *e = L->elem[i - 1];
+
+    if (i < L->length) {
+        for (int j = i; j < L->length; ++j) {
+            L->elem[j - 1] = L->elem[j];
+        }
+    }
+    L->length--;
     return OK;
 }
 
 Status ListTraverse(SqList L) {
+    if (L.length < 0) return ERROR;
+    for (int i = 0; i < L.length; ++i) visit(L.elem[i]);
+    printf("\n");
     return OK;
 }
 
 void unionL(SqList *La, SqList Lb) {
+    int La_len = ListLength(*La);
+    int Lb_len = ListLength(Lb);
 
+    ElemType e;
+    for (int i = 1; i <= Lb_len; ++i) {
+        GetElem(Lb, i, &e);
+        if (!LocateElem(*La, e)) ListInsert(La, ++La_len, e);
+    }
 }
