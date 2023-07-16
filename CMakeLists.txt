@@ -5,3 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(list chapter02/list.c)
 add_executable(status_def.h chapter02/list.c)
+
+add_executable(linear_list chapter02/linear_list.c)
