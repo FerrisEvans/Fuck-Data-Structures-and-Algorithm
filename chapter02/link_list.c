@@ -31,6 +31,20 @@ Status ListEmpty(LinkList L) {
     else return TRUE;
 }
 
+/* 从头指针开始，一次释放所有结点 */
+Status DestroyList(LinkList *L) {
+
+    Node *p, *tmp;
+    p = (*L)->next;
+    (*L)->next = NULL;
+    while (p != NULL) {
+        tmp = p->next;
+        free(p);
+        p = tmp;
+    }
+
+    return OK;
+}
 
 
 int main() {
