@@ -48,5 +48,6 @@ Status DestroyList(LinkList *L) {
 
 
 int main() {
+    printf("hello world!");
     return 0;
 }
