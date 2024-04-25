@@ -7,13 +7,15 @@
 
 #endif //FUCK_DATA_STRUCTURES_AND_ALGORITHM_STATUS_DEF_H
 
-#include <stdlib.h>
-#include "stdio.h"
-#include "string.h"
-#include "ctype.h"
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <cctype>
 
-#include "math.h"
-#include "time.h"
+#include <cmath>
+#include <ctime>
+
+#include "iostream"
 
 #define OK 1
 #define ERROR (-1)
@@ -22,5 +24,9 @@
 #define INFEASIBLE (-1)
 #define OVERFLOW (-2)
 
-typedef int ElemType;
-typedef int Status;
+//typedef int ElemType;
+//typedef int Status;
+
+#define ElemType int
+
+using namespace std;
