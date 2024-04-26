@@ -9,6 +9,8 @@ struct SequentialList {
     int capacity;
 };
 void console(SequentialList *);
+// https://acm.hdu.edu.cn/showproblem.php?pid=2006
+void pid2006();
 
 void initialize(SequentialList *list, int capacity) {
     list->element = new ElemType[capacity];
@@ -83,26 +85,7 @@ void updateElement(SequentialList *list, ElemType e, int index) {
 }
 
 int main() {
-    SequentialList l{};
-    initialize(&l, 10);
-    for (int i = 0; i < l.capacity; ++i) {
-        insert(&l, i * 10, i);
-    }
-    cout << "Size: " << size(&l) << endl;
-    cout<< "Is empty: " << isEmpty(&l) << endl;
-
-    console(&l);
-
-    deleteElement(&l, 5);
-    updateElement(&l, 1314, 1);
-
-    console(&l);
-
-    int idx = findElement(&l, 20);
-    updateElement(&l, 520, idx);
-
-    console(&l);
-    destroy(&l);
+    pid2006();
     return 0;
 }
 
@@ -111,4 +94,28 @@ void console(SequentialList *list) {
         cout << getElement(list, i) << " ";
     }
     cout << endl;
+}
+
+void pid2006() {
+
+    int n;
+    while (cin >> n) {
+        SequentialList list;
+        initialize(&list, 1);
+        for (int i = 0; i < n; ++i) {
+            int x;
+            cin >> x;
+            insert(&list, x, i);
+        }
+
+        int val = 1;
+        for (int i = 0; i < list.size; ++i) {
+            int e = getElement(&list, i);
+            if (e % 2 == 1) {
+                val *= e;
+            }
+        }
+        cout << val << endl;
+        destroy(&list);
+    }
 }
