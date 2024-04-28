@@ -11,6 +11,8 @@ struct SequentialList {
 void console(SequentialList *);
 // https://acm.hdu.edu.cn/showproblem.php?pid=2006
 void pid2006();
+// https://acm.hdu.edu.cn/showproblem.php?pid=2008
+void pid2008();
 
 void initialize(SequentialList *list, int capacity) {
     list->element = new ElemType[capacity];
@@ -85,7 +87,8 @@ void updateElement(SequentialList *list, ElemType e, int index) {
 }
 
 int main() {
-    pid2006();
+//    pid2006();
+    pid2008();
     return 0;
 }
 
@@ -96,8 +99,31 @@ void console(SequentialList *list) {
     cout << endl;
 }
 
-void pid2006() {
+void pid2008() {
+    int n;
+    while (cin >> n && n) {
+        double arr[n];
+        for (int i = 0; i < n; ++i) {
+            double x;
+            cin >> x;
+            arr[i] = x;
+        }
+        cout << endl;
 
+        int a = 0, b = 0, c = 0;
+        for (int i = 0; i < n; ++i) {
+            double e = arr[i];
+            if (e < -1e-8) a++;
+            else if (e > 1e-8) c++;
+            else b++;
+        }
+
+        cout << a << ' ' << b << ' ' << c << endl;
+    }
+
+}
+
+void pid2006() {
     int n;
     while (cin >> n) {
         SequentialList list;
