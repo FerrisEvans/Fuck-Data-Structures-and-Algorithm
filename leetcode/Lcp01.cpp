@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    int game(vector<int>& guess, vector<int>& answer) {
+    static int game(vector<int>& guess, vector<int>& answer) {
 
         int count = 0;
         for (int i = 0; i < 3; ++i) {
@@ -18,7 +18,7 @@ public:
 };
 
 int main () {
-    Solution s;
+
     vector<int> guess;
     vector<int> answer;
 
@@ -29,7 +29,7 @@ int main () {
     answer.push_back(2);
     answer.push_back(3);
     answer.push_back(1);
-    int res = s.game(guess, answer);
+    int res = Solution::game(guess, answer);
     cout << res << endl;
     return 0;
 }

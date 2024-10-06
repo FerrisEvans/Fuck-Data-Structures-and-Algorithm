@@ -8,9 +8,12 @@ struct SequentialList {
     int size;
     int capacity;
 };
+
 void console(SequentialList *);
+
 // https://acm.hdu.edu.cn/showproblem.php?pid=2006
 void pid2006();
+
 // https://acm.hdu.edu.cn/showproblem.php?pid=2008
 void pid2008();
 
