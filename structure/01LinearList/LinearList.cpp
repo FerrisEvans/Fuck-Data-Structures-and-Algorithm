@@ -1,6 +1,3 @@
-//
-// Created by Ferris on 4/25/24.
-//
 #include "../status_def.h"
 
 struct SequentialList {
