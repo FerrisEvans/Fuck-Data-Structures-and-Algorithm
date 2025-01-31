@@ -1,8 +1,4 @@
-//
-// Created by Ferris on 10/13/24.
-//
 #include "iostream"
-#include "stdexcept"
 
 using namespace std;
 
