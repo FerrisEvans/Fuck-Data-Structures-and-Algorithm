@@ -1,6 +1,3 @@
-//
-// Created by Ferris on 5/4/24.
-//
 #include "iostream"
 #include "vector"
 

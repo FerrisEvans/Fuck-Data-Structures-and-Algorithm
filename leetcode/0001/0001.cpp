@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 class Solution {
 public:
     static int game(vector<int>& guess, vector<int>& answer) {
